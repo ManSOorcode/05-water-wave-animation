@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Water Loading Animation</title>
+
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background: #262626;
+				height: 80vh;
+				display: grid;
+				place-items: center;
+			}
+
+			h3 {
+				color: #262626;
+				font-size: 4rem;
+				font-family: monospace;
+				font-weight: 600;
+
+				margin-bottom: 5em;
+				padding: 15px;
+
+				background: url(wave.png) repeat-x;
+				background-size: 130px;
+
+				border: 5px solid #fff;
+
+				outline: 5px solid #333;
+				outline-offset: -10px;
+
+				border-radius: 20px;
+
+				animation: cup 4s linear infinite;
+			}
+
+			.cup {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+
+				width: 150px;
+				height: 180px;
+
+				border: 6px solid #262626;
+				border-top: 2px solid transparent;
+				border-radius: 15px;
+				border-top-right-radius: 5px;
+				border-top-left-radius: 5px;
+
+				background: url(wave.png) repeat-x;
+				background-size: 175px;
+
+				box-shadow: 0 0 0 6px #fff, 0 20px 35px rgba(0, 0, 0, 1);
+
+				animation: flow 4s linear infinite;
+			}
+
+			.cup::after {
+				content: "";
+				position: absolute;
+				top: 40px;
+				left: 145px;
+
+				box-sizing: border-box;
+
+				width: 50px;
+				height: 80px;
+
+				border: 6px solid #fff;
+				border-top-right-radius: 100px;
+				border-bottom-right-radius: 500px;
+			}
+
+			@keyframes flow {
+				0% {
+					background-position: 0 40px;
+				}
+
+				25% {
+					background-position: 46px 60px;
+				}
+
+				50% {
+					background-position: 88px 80px;
+				}
+
+				75% {
+					background-position: 130px 60px;
+				}
+
+				100% {
+					background-position: 175px 40px;
+				}
+			}
+
+			@keyframes cup {
+				0% {
+					background-position: 0px 40px;
+				}
+
+				100% {
+					background-position: 130px 40px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="head">
+			<h3>Cup of Water</h3>
+		</div>
+		<div class="cup"></div>
+	</body>
+</html>
